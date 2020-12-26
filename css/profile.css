@@ -1,0 +1,191 @@
+/*Imported cool font*/
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:900&display=swap');
+/*Disables scrolling */
+body {margin: 0; height: 100%; overflow: hidden}
+
+/* make names with special font*/
+.name {
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+/*change font and make padding 0 for all p's*/
+p {
+    font-family: 'Red Hat Display', sans-serif;
+    padding: 0;
+}
+/* Displays profile picture in top left*/
+.gameBoard .profileBlock .profileIMG {
+    border-radius: 10em;
+    border:8px solid #ACD8F0;
+    width: 90%;
+    margin: 5px;
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot2 {
+  height: 10px;
+  width: 10px;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  float: right;
+}
+/* Friends list on bottom left*/
+#friend-list { 
+    margin: 5px;
+    padding: 0;
+    width: 100%;
+    height: 300px;
+    background: #EEE;
+    overflow: scroll;
+    border-radius: 1em;
+}
+
+/* Each individuals friend display properties*/
+.friend {
+  width: 100%;
+  height: 50px;
+  background: #EEE;
+  border-bottom: 1px solid #DDD;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Each friends img properties*/
+.friend img {
+  width: 45px;
+  height: 45px;
+  border-radius: 30px;
+  border: 2px solid #AAA;
+  object-fit: cover;
+  margin-left: 5px;
+  margin-right: 10px;
+}
+
+/*Changes size of font for friends names*/
+.friend .name {
+  font-size: 15px;
+}
+
+/* Selected friend is highlighted green*/
+.friend.selected {
+  background: #43A047;
+  color: white;
+}
+
+/* Selected friends img is bordered white */
+.friend.selected img {
+  border-color: white;
+}
+
+/* if hovered over but not selected, change color*/
+.friend:not(.selected):hover {
+  background: #DDD;
+}
+
+.viewProf {
+  margin: 5px;
+  background-color: cyan;
+}
+/* add friend button*/
+#addFriend {
+  float: right;
+  width: 100px;
+  height: 50px;
+  grid-column: 3;
+  margin: auto;
+  border: 1px solid #ccc;
+  background-color: lightgreen;
+  text-align: center;
+  width: 150px;
+  padding: 10px;
+  font-size: 15pt;
+  text-align: center;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    margin: auto;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    text-align: center;
+
+
+    width: 450px;
+    word-spacing: 5pt;
+    padding: 10px;
+    font-size: 15pt;
+    text-align: center;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0.5em 0.5em;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: flex;
+  padding: 6px 12px;
+  border-top: none;
+  font-weight: 0;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+
+/*Grid template for my profile section*/
+.profileBlock {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 2fr;
+    grid-column-gap: 30px;
+}
+
+/* Positions kowalskis profile picture top left*/
+.profileIMG {
+    grid-column: 1;
+    grid-row: 1;
+    width: 120px;
+    height: 200px;
+}
+
+/*Positions friends list at bottom left of grid*/
+.friendslist {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+
+/*Styling for add and remove button in settings profile*/
+#remove {
+  background-color:red;
+  color: white;
+}
+#add {
+  background-color:lightgreen;
+  color: white;
+}

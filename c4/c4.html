@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--  -->
+<head>
+    <link href="/c4.css" rel="stylesheet" type="text/css">
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/chat.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Connect 4</title>
+</head>
+<!-- Navbar-->
+<nav class="navbar navbar-expand-md bg-custom-2">
+    <!-- Brand--><a class="navbar-brand" href="/" style="font-size: 25pt; color:DAE0F2;"><b>Connect4</b></a>
+    <!-- Toggler/collapsibe Button--><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon" id="favicon"></span></button>
+    <!-- Navbar links-->
+    <div class="collapse navbar-collapse justify-content-between" id="myNavbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+        </ul>
+        <ul class="navbar-nav" ul="">
+            <!-- <li class="nav-item"><a class="nav-link" href="/login">Login</a></li> -->
+            <!-- <li class="nav-item"><a class="nav-link" href="/signup">Sign up</a></li> -->
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- Area where Connect 4 will be played (white box)-->
+<div class="gameBoard" style="width: 90%;">
+    <div class="container">
+        <table>
+            <tr>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+            </tr>
+            <tr>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+            </tr>
+            <tr>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+            </tr>
+            <tr>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+            </tr>
+            <tr>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+            </tr>
+            <tr>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+                <td class="Cell"></td>
+            </tr>
+        </table>
+    </div>
+<style>
+input { 
+    font:12px arial; 
+}
+#wrapper input { border: 0; margin: 10px; padding: 10px; width: 70%; margin-right: .5%; }
+#wrapper button { width: 10%; background: rgb(130, 224, 255); border: black; padding: 10px; }
+
+#messages { list-style-type: none; margin-bottom: 5px; }
+#messages li { padding: 10px 10px;}
+#messages li:nth-child(odd) { background: #eee;}
+ body { font: 13px Helvetica, Arial; } 
+
+/*ChatBox*/
+#wrapper {
+    top: 17%;
+    right: 15%;
+    margin:0 auto;
+    padding-bottom:15px;
+    background:#EBF4FB;
+    float:center;
+    width:500px;
+    border:1px solid #ACD8F0; 
+}
+  
+
+/**/
+#welcome {
+  float:center;
+}
+#chatbox {
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:0px;
+    background:#fff;
+    height:290px;
+    width:450px;
+    border:2px solid #ACD8F0;
+    overflow:auto; }
+#chatbox ul {
+  margin: 0 auto;
+  padding:0px;
+}
+    </style>
+    <div id="wrapper">
+        <p id="welcome">Welcome, Kamal Chahrour</p>
+        <div id="chatbox">
+          <ul id="messages"></ul>
+        </div>
+        <!-- <button type="button" onclick="joinChat()">Join Chat</button> -->
+        <input id="message" autocomplete="off" style="width:90%; margin:10px;">
+        <button id="send" onclick="sendMessage()" style="width: 90%; margin:10px;">Send</button>
+    </div>
+    <!-- <div id="wrapper">
+        <p class="welcome">Welcome, Kamal Chahrour<b></b></p>
+        <div id="chatbox"></div>
+        <form name="message" action=""><input id="usermsg" name="usermsg" type="text" size="40"><input id="submitmsg" name="submitmsg" type="submit" value="Send"></form>
+    </div> -->
+
+    <h1 class="playerTag"></h1>
+    <div class="buttons">
+        <!--.reset Reset-->
+          
+        <script src="/connect4.js"></script>
+        
+
+        </div></div>    
+</div>
+

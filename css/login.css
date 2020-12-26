@@ -1,0 +1,54 @@
+/* actual buttons for login and cancel*/
+.gameBoard button {   
+       background-color: #4CAF50;   
+       width: 100%;  
+        color: white;   
+        padding: 15px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+        border-radius: 2em;
+}   
+
+/*white box around password form (not visible rn)*/
+form {   
+      border: 0px solid #f1f1f1;   
+  }   
+
+/*login form */
+input[type=text], input[type=password] {   
+  width: 100%;   
+  margin: 8px 0px;  
+  padding: 15px 15px;   
+  display: inline-block;   
+  border: 3px solid gray;   
+  box-sizing: border-box;   
+  border-radius: 2em;
+
+  }  
+
+/*Button styling*/
+button:hover {   
+  opacity: 0.6;   
+  }   
+
+/* Login container*/
+.container {   
+  padding: 30px;   
+  background-color: lightblue;  
+  border-radius: 2em;
+}   
+
+/*Extra container for formatting purposes*/
+.container3 {
+  width: 100%;
+}
+
+.container3 p {
+  text-align: center;
+}
+
+.container .forgotpassword {
+    float: right;
+}
+

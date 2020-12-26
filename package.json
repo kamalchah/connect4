@@ -1,0 +1,21 @@
+{
+  "name": "trivia",
+  "version": "1.0.0",
+  "description": "",
+  "main": "trivia-example.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "http": "0.0.1-security",
+    "mongoose": "^5.10.15",
+    "pug": "^3.0.0",
+    "sessions": "0.0.2-7",
+    "socket.io": "^3.0.3"
+  }
+}

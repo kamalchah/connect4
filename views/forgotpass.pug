@@ -1,0 +1,45 @@
+doctype html
+head
+  link(href='c4.css' rel='stylesheet' type='text/css')
+  link(href='login.css' rel='stylesheet' type='text/css')
+  script(src='c4.js')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  title Connect 4
+// Navbar
+nav.navbar.navbar-expand-md.bg-custom-2
+  // Brand
+  a.navbar-brand(href='c4.html' style='font-size: 25pt; color:DAE0F2;')
+    b Connect4
+  // Toggler/collapsibe Button
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#myNavbar' aria-controls='myNavbar' aria-expanded='false' aria-label='Toggle navigation' left='')
+    span#favicon.navbar-toggler-icon
+  // Navbar links
+  #myNavbar.collapse.navbar-collapse.justify-content-between
+    ul.navbar-nav.mr-auto
+      li.nav-item
+        a.nav-link(href='/') Home
+      li.nav-item
+        a.nav-link(href='/profile') Profile
+    ul.navbar-nav(ul='')
+      li.nav-item
+        a.nav-link(href='/login') Login
+      li.nav-item
+        a.nav-link(href='/signup') Sign up
+.gameBoard
+  form
+    .container
+      label
+        | To recover your account, please enter either your email or username and hit Forgot Password.
+      label Email : 
+      input(type='text' placeholder='Enter Email' name='email' required='')
+      label Username : 
+      input(type='text' placeholder='Enter Username' name='username' required='')
+      button(type='submit') Recover Account
+      .container3
+        p
+          a.signup(href='/login') Have an account? Login here
+br
+br

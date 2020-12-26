@@ -1,0 +1,132 @@
+/*Disables scrolling */
+body {margin: 0; height: 100%; overflow: hidden}
+
+/*navbar color*/
+.bg-custom-2 { 
+	background-color: #7f5a83;
+background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+
+}
+
+/* Navbar elements colors */
+.navbar-nav li a {
+	color: #F9CFF2 !important;
+	font-size: 20pt;
+}
+
+/*Navbar hover animation*/
+.navbar-nav li a:hover { 
+    opacity: 0.5; 
+}
+
+/*navbar icon when minimized*/
+.navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(249,207,242, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+   
+}
+
+/*Background color (beige) */
+body {
+	background-color: #2f4353;
+	background-image: linear-gradient(315deg, #2f4353 0%, #d2ccc4 74%);
+}
+
+/*white background*/
+.gameBoard {
+     width: 90%; 
+     height: 800px; 
+     margin-top: 50px; 
+     margin-left: auto; 
+     margin-right: auto;
+     border-radius: 2em;   
+  
+	background: rgba(255,255,255,0.9);
+	padding: 40px;
+	box-shadow: 15px 15px #888888;
+}
+
+/*Formatting forms, p and span*/
+form, p, span {
+    margin:0;
+    padding:0; 
+}
+
+/*Chatbox input*/
+input { 
+    font:12px arial; 
+}
+  
+/*ChatBox*/
+#wrapper {
+    top: 17%;
+    right: 15%;
+    margin:0 auto;
+    padding-bottom:15px;
+    background:#EBF4FB;
+    float:right;
+    width:504px;
+    border:1px solid #ACD8F0; 
+}
+  
+/* where your message can be entered*/
+#usermsg {
+	width:350px;
+	margin-left: 10%;
+}
+
+/**/
+#chatbox {
+    text-align:left;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto; }
+
+/*Styling buttons div*/
+.gameBoard .buttons {
+    width: 60%;
+    height: 10%;
+    padding: 5px;
+
+}
+
+/*Styling buttons*/
+.gameBoard .buttons button {
+    padding: 15px;
+    border-radius: 0.4em;
+    border-spacing: 2px;
+    cursor: pointer;
+    padding: 0.5em 0.5em;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+
+}
+
+
+/*Styling buttons */
+.gameBoard .buttons button:hover {
+    background-color: #3e8e41
+}
+
+.gameBoard .buttons button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.welcome {
+    float: center;
+}

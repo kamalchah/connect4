@@ -1,0 +1,224 @@
+doctype html
+head
+  link(href='c4.css' rel='stylesheet' type='text/css')
+  link(href='profile.css' rel='stylesheet' type='text/css')
+  script(src='profile.js')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  title Connect 4
+
+
+// Navbar
+nav.navbar.navbar-expand-md.bg-custom-2
+  // Brand
+  a.navbar-brand(href='/' style='font-size: 25pt; color:DAE0F2;')
+    b Connect4
+  // Toggler/collapsibe Button
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#myNavbar' aria-controls='myNavbar' aria-expanded='false' aria-label='Toggle navigation')
+    span#favicon.navbar-toggler-icon
+  // Navbar links
+  #myNavbar.collapse.navbar-collapse.justify-content-between
+    ul.navbar-nav.mr-auto
+      li.nav-item
+        a.nav-link(href='/') Home
+      li.nav-item
+        a.nav-link(href='/profile') Profile
+      li.nav-item
+        a.nav-link(href='/search') Search
+      li.nav-item
+        a.nav-link(href='/creategame') Create Game
+    ul.navbar-nav(ul='')
+      li.nav-item
+        a.nav-link(href="/logout") Logout
+.gameBoard
+  .profileBlock
+    // Tab links
+    .tab
+      button#defaultOpen.tablinks(type='button' onclick="openTab(event, 'Stats') ") Stats
+      button.tablinks(type='button' onclick="openTab(event, 'Manage')") Manage Friends
+      button.tablinks(type='button' onclick="openTab(event, 'FriendRequests')") Friend Requests
+      button.tablinks(type='button' onclick="openTab(event, 'GameRequests')") Game Requests
+      button.tablinks(type='button' onclick="openTab(event, 'ActiveGames')") Active Games
+      button.tablinks(type='button' onclick="openTab(event, 'PastGames')") Past Games
+      button.tablinks(type='button' onclick="openTab(event, 'Settings')") Settings
+    // Tab content
+    #Stats.tabcontent
+      form
+        h1 Stats
+        br
+        label(for='fname') Games Won:
+        input#lname(type='text' value=user.GamesWon name='lname' disabled='')
+        br
+        br
+        label(for='lname') Games Lost:
+        input#lname(type='text' value=user.GamesLost name='lname' disabled='')
+        br
+        br
+        label(for='percentage') Win Percentage:
+        input#percentage(type='text' value=percentage name='percentage' disabled='')
+        
+    #Manage.tabcontent
+      
+        h1 Manage Friends
+        
+        form(action="/addF" method='POST')
+          label Add Friend:
+          input(name='user' type='text' required='')
+
+          button(type='submit')#add Add
+
+        form(action="/remF" method='POST')
+          label Remove Friend:
+          input(name='user' type='text' required='')
+          button(type='submit')#remove Remove
+        br
+        br
+    #ActiveGames.tabcontent
+      form
+        h1 Active Games
+        .friendslist
+      b
+        
+      ul#friend-list
+        if gameArr=="empty"
+          h1(style="float:center;") No Active Games!
+        else
+          each val in gameArr
+            li.friend
+              p #{val.players[0]} vs #{val.players[1]}
+
+              form(action="/games/" + val.gameID method="GET")
+                button.viewProf(type='submit')  View Match
+              form(action="/games/" + val.gameID method="POST")
+                button.viewProf(type='submit' name="user" style="margin:10px; background-color:red;" value="forfeit")  Forfeit Match
+              - if (val.currentTurn==1 && val.players[0]==user.username)
+                p Your turn!
+              - else if(val.currentTurn==2 && val.players[1]==user.username)
+                p Your Turn!
+              - else
+                p Not your turn!
+
+    #PastGames.tabcontent
+      form
+        h1 Past Games
+        .friendslist
+      b
+        
+      ul#friend-list
+        if gameArr2=="empty"
+          h1(style="float:center;") No Past Games!
+        else
+          each val in gameArr2
+            form(action="/games/" + val.gameID method="GET")
+              li.friend
+                p #{val.players[0]} vs #{val.players[1]}
+                button.viewProf(type='submit' style="margin:10px;")  view match
+                if val.isGameDone
+                  if val.winner == "tie"
+                    p Tie!
+                  else
+                    p  Winner: #{val.winner}
+    #GameRequests.tabcontent
+      form
+        h1 Game Requests
+        .friendslist
+      b
+        
+      ul#friend-list
+        if user.gameRequests.length==0
+          h1(style="float:center;") No Game Requests!
+        else
+          each val in user.gameRequests
+
+            div
+              li.friend
+                p #{val[0]} wants to play against you!
+                - if(val[1]=="fo")
+                  p In a friends only game!
+                - else
+                  p In a #{val[1]} game!
+                form(action="/acceptG" method="POST")
+                  button.viewProf(type='submit' name="user" style="margin:10px; background-color:light-green;" value=val)  Accept Request
+                form(action="/declineG" method="POST")
+                  button.viewProf(type='submit' name="user" style="margin:10px; background-color:red;" value=val)  Decline Request
+                form(action="/users/" + val[0] method="GET")
+                  button.viewProf(type='submit' style="margin:10px; background-color:blue;" value=val[0])  View Profile
+    #FriendRequests.tabcontent
+      form
+        h1 Friend Requests
+        .friendslist
+      b
+        
+      ul#friend-list
+        if user.FriendRequests.length==0
+          h1(style="float:center;") No Friend Requests!
+        else
+          each val in user.FriendRequests
+
+            div
+              li.friend
+                p #{val.username} wants to be your friend!
+                form(action="/addF" method="POST")
+                  button.viewProf(type='submit' name="user" style="margin:10px; background-color:light-green;" value=val.username)  Accept Request
+                form(action="/remF" method="POST")
+                  button.viewProf(type='submit' name="user" style="margin:10px; background-color:red;" value=val.username)  Decline Request
+                form(action="/users/" + val.username method="GET")
+                  button.viewProf(type='submit' style="margin:10px; background-color:blue;" value=val.username)  View Profile
+                
+
+    #Settings.tabcontent
+      div
+        h1 Settings
+        br
+        label(for='fname') Username:
+        input#Username(type='text' value= user.username name='Username' disabled='')
+        br
+        br
+        label(for='lname') Email:
+        input#email(type='text' value= user.email name='email' disabled='')
+        br
+        br
+        a.forgotpassword(href='/forgotpass')  Forgot password?
+        br
+        br
+        label Change profile visiblity (public/private)
+        if user.isPublic
+          p Currently Public
+        else
+          p Currently Private
+        form(action="/profilePub/" method="POST")
+          label(for="public") Public
+          input(type='radio',name='isPublic' value ='public' id="public")
+          br
+          label Private
+          input(type='radio',name='isPublic' value ='private')
+          br
+          button.viewProf(type='submit' style="margin:10px; background-color:light-green;")  Save Changes
+    script.
+      document.getElementById("defaultOpen").click() 
+    
+    // END OF TABS
+
+    img.profileIMG(src=user.profilePic)
+    .friendslist
+      b
+        label Friends List
+      ul#friend-list
+        
+        each val in user.friends
+          form(action="/users/" + val.username method="GET")
+            li.friend
+              img(src=val.profilePic)
+              .name
+                | #{val.username}
+              button.viewProf(type='submit')  profile
+              if val.isOnline
+                span.dot2(style='background-color: green;')
+              else
+                span.dot2
+
+// Breaklines to fix formatting of bottom of page
+br
+br

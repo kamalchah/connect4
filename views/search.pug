@@ -1,0 +1,67 @@
+doctype html
+head
+  link(href='c4.css' rel='stylesheet' type='text/css')
+  link(href='profile.css' rel='stylesheet' type='text/css')
+  script(src='profile.js')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')
+  title Connect 4
+
+
+// Navbar
+nav.navbar.navbar-expand-md.bg-custom-2
+  // Brand
+  a.navbar-brand(href='/' style='font-size: 25pt; color:DAE0F2;')
+    b Connect4
+  // Toggler/collapsibe Button
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#myNavbar' aria-controls='myNavbar' aria-expanded='false' aria-label='Toggle navigation')
+    span#favicon.navbar-toggler-icon
+  // Navbar links
+  #myNavbar.collapse.navbar-collapse.justify-content-between
+    ul.navbar-nav.mr-auto
+      li.nav-item
+        a.nav-link(href='/') Home
+      li.nav-item
+        a.nav-link(href='/profile') Profile
+      li.nav-item
+        a.nav-link(href='/search') Search
+      li.nav-item
+        a.nav-link(href='/creategame') Create Game
+
+    ul.navbar-nav(ul='')
+      li.nav-item
+        a.nav-link(href="/logout") Logout
+.gameBoard
+  .profileBlock 
+    form(action="/search" method='POST')
+      label Search User Database:
+      input(name='user' type='text' required='')
+      button(type='submit')#add Search
+    br
+    br
+    
+    // END OF TABS
+    
+    .friendslist
+      b
+        label User List
+      ul#friend-list
+        
+        each val in userArr
+          - if (val.isPublic || val.friends.includes(reqUser))
+            form(action="/users/" + val.username method="GET")
+              li.friend
+                img(src=val.profilePic)
+                .name
+                  | #{val.username} 
+                button.viewProf(type='submit')  view profile
+                if val.isOnline
+                  span.dot2(style='background-color: green;')
+                else
+                  span.dot2
+
+// Breaklines to fix formatting of bottom of page
+br
+br

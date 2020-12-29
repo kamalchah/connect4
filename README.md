@@ -1,4 +1,4 @@
-# Connect4 Multiplayer
+# Connect4 Multiplayer Website
  
 This is a connect4 multiplayer game I made as a final project for my Web Development class. This was a solo dolo project which I made using a TON of javascript, some HTML, pug, express, Node.js and a few other minor libraries. 
 

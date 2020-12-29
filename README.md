@@ -14,7 +14,10 @@ The game comes complete with a fully working user system where you can:
 As for the game side:
 - fully working multiplayer connect4 
 - you can create public, private and friends only games
-- you can view other games and chat at the same time
+- you can view other games and chat at the same time (global chatbox, same chatbox for all games)
+
+Gif demo-ing the website:
+![](demo.gif)
 
 Below are screenshots of the website 
 

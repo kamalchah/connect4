@@ -4,5 +4,6 @@ This is a connect4 multiplayer game I made as a final project for my Web Develop
 The game comes complete with a fully working user system where you can add and delete friends, you can change your profile privacy, you can view other peoples profiles, you can search for users and much more. As for the game side, there is a fully working multiplayer connect4 where you can create public, private and friends only games, you can view other games and chat at the same time! 
 
 Below are screenshots of the website 
+Sign up page:
 
-![alt text](https://i.gyazo.com/05e000b91846783f892e6693294d2d99.png)
+![alt text](https://gyazo.com/bbf7493262ce62307aec8d4d9b7fa668)

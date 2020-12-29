@@ -23,13 +23,17 @@ Viewing profile of others page:
 
 Search page: NOTE: shows all registered public users in the list, when you search it filters by users that contain seach parameters!
 
-![alt text](https://gyazo.com/a7f592fc2fa0e280faffa98d3724be7b)
+![alt text](https://i.gyazo.com/a7f592fc2fa0e280faffa98d3724be7b.png)
 
-Login page:
+Game creation page:
 
-![alt text](https://i.gyazo.com/bbf7493262ce62307aec8d4d9b7fa668.png)
+![alt text](https://i.gyazo.com/be3a9cad9c4e23ff07011f930ff0e4c1.png)
 
-Login page:
+Game page (with a winning example):
 
-![alt text](https://i.gyazo.com/bbf7493262ce62307aec8d4d9b7fa668.png)
+![alt text](https://i.gyazo.com/5f8afa57335623dcab5c526184ce1903.png)
+
+Game page (with a winning example):
+
+![alt text](https://i.gyazo.com/109a94ef4bc631e0f17128094db27999.png)
 
